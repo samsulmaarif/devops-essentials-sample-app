@@ -12,18 +12,18 @@ pipeline {
             }
         }
         stage('DeployToStage') {
-            when {
-                branch 'master'
-            }
+            //when {
+            //    branch 'master'
+            //}
             steps {
                 sh 'scp src/* deployer@$STAGINGSERVER:/home/deployer/staging/html/'
             }
 
         }
         stage('DeployToProd') {
-            when {
-                branch 'master'
-            }
+            //when {
+            //    branch 'master'
+            //}
             steps {
                 input 'Does the staging environment look OK?'
                 milestone(1)
