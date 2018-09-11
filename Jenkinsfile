@@ -25,7 +25,7 @@ pipeline {
             //    branch 'master'
             //}
             steps {
-                input 'Does the staging environment look OK?'
+                input message: 'Yakin mau deploy ?', ok: 'Yakin'
                 milestone(1)
                 sh 'scp src/* deployer@$STAGINGSERVER:/home/deployer/production/html/'
             }
