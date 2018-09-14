@@ -16,7 +16,7 @@ pipeline {
             //    branch 'master'
             //}
             steps {
-                sh 'scp src/* deployer@$STAGINGSERVER:/home/deployer/staging/html/'
+                sh 'scp -r src/* deployer@$STAGINGSERVER:/home/deployer/staging/html/'
             }
 
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 input message: 'Yakin mau deploy ?', ok: 'Yakin'
                 milestone(1)
-                sh 'scp src/* deployer@$STAGINGSERVER:/home/deployer/production/html/'
+                sh 'scp -r src/* deployer@$STAGINGSERVER:/home/deployer/production/html/'
             }
         }
     }
